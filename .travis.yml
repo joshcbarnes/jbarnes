@@ -4,6 +4,10 @@ node_js:
   - "6"
 services:
   - docker
+install:
+  - echo "install nothing!"
+script:
+  - echo "no tests!"
 after_success:
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
