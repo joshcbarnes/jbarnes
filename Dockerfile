@@ -2,6 +2,7 @@ FROM amazonlinux:latest
 
 RUN yum clean all
 RUN yum install -y wget
+RUN yum install -y iptables
 
 RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
 RUN wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
