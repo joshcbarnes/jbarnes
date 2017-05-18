@@ -17,5 +17,7 @@ RUN yarn install
 
 COPY . /usr/src/app
 
+RUN iptables -t nat -A OUTPUT -o lo -p tcp --dport 80 -j REDIRECT --to-port 8080
+
 EXPOSE 8080
 CMD [ "node", "index.js" ]
