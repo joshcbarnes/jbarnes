@@ -1,0 +1,19 @@
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #CF3030;
+
+    padding: 15px;
+}
+
+.title {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.title .main {
+    color: #fff;
+}
+
+.title .alt {
+    color: #333;
+}
