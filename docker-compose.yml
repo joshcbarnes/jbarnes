@@ -4,11 +4,11 @@ services:
     nginx:
         build: ./nginx
         links:
-            - node:node
+            - jbarnes:jbarnes
         ports:
             - "80:80"
         image: 306438496077.dkr.ecr.us-west-2.amazonaws.com/nginx:latest
-    node:
+    jbarnes:
         build: ./site
         ports:
             - "8080"
