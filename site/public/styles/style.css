@@ -3,12 +3,33 @@ body {
     background-color: #CF3030;
 
     padding: 15px;
+    margin: 0px;
 }
 
 .title {
+    position: relative;
+
     font-size: 100px;
     font-weight: bold;
     height: 100px;
+}
+
+.title * {
+    text-align: right;
+    width: 500px;
+
+    cursor: pointer;
+}
+
+.title .subtext {
+    position: relative;
+    top: -10px;
+    
+    font-size: 20px;
+}
+
+.title a {
+    text-decoration: none;
 }
 
 .title .main {
