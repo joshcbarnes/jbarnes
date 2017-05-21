@@ -9,7 +9,6 @@ docker-compose --version
 pip install --user awscli
 export PATH=$PATH:$HOME/.local/bin
 eval $(aws ecr get-login --region us-west-2) #needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY envvars
-docker-compose pull
 docker-compose build
 docker-compose push
 
