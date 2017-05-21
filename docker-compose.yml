@@ -1,0 +1,12 @@
+nginx:
+    build: ./nginx
+    links:
+        - node:node
+    ports:
+        - "80:80"
+    image: 306438496077.dkr.ecr.us-west-2.amazonaws.com/nginx:latest
+node:
+    build: ./site
+    ports:
+        - "8080"
+    image: 306438496077.dkr.ecr.us-west-2.amazonaws.com/jbarnes:latest
