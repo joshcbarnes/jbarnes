@@ -1,9 +1,13 @@
 body {
     font-family: 'Josefin Sans', sans-serif;
     background-color: #CF3030;
+    color: #fff;
 
     padding: 15px;
     margin: 0px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
@@ -38,4 +42,40 @@ body {
 
 .title .alt {
     color: #333;
+}
+
+.content {
+    margin: auto;
+    width: 800px;
+}
+
+.greeting {
+    text-align: center;
+    justify-content: center;
+}
+
+.greeting .sections {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.greeting .fa {
+    font-size: 50px;
+}
+
+.greeting .section {
+    border: 8px solid #fff;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.greeting .section * {
+    margin: 5px;
 }
