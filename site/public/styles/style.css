@@ -98,3 +98,8 @@ hr:before {
 .greeting .section * {
     margin: 5px;
 }
+
+.greeting .droopy {
+    position: relative;
+    top: 50px;
+}
