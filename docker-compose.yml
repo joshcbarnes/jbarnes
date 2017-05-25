@@ -3,13 +3,21 @@ version: "2"
 services:
     nginx:
         build: ./nginx
-        links:
-            - jbarnes:jbarnes
         ports:
             - "80:80"
         image: 306438496077.dkr.ecr.us-west-2.amazonaws.com/nginx:latest
     jbarnes:
-        build: ./site
+        build: ./jbarnes
         ports:
             - "8080"
         image: 306438496077.dkr.ecr.us-west-2.amazonaws.com/jbarnes:latest
+    registry:
+        build: ./registry
+        ports:
+            - "8081"
+        image: 306438496077.dkr.ecr.us-west-2.amazonaws.com/registry:latest
+    redis:
+        ports:
+            - "6379"
+        image: library/redis:latest
+    
