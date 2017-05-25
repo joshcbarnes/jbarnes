@@ -16,6 +16,11 @@ services:
         ports:
             - "8081"
         image: 306438496077.dkr.ecr.us-west-2.amazonaws.com/registry:latest
+    bio:
+        build: ./bio
+        ports:
+            - "8082"
+        image: 306438496077.dkr.ecr.us-west-2.amazonaws.com/bio:latest
     redis:
         ports:
             - "6379"

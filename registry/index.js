@@ -14,42 +14,38 @@ app.use(bodyParser.json());
 app.use(expressValidator());
 
 app.get("/services", function(req, res, next) {
-    res.json([
-        {
-            name: "About Me",
-            icon: "fa-user"
-        },
-        {
-            name: "This Site",
-            icon: "fa-code"
-        },
-        {
-            name: "Resources",
-            icon: "fa-file-text"
-        }
-    ]);
-    // redisClient.getAsync("services").then(function(services) {
-    //     res.send(services);
-    // });
+    redisClient.hgetallAsync("services").then(function(services) {
+        res.json(Object.keys(services).map(service => {
+            return JSON.parse(services[service]);
+        }));
+    });
+
+    // res.json([
+    //     {
+    //         name: "About Me",
+    //         icon: "fa-user"
+    //     },
+    //     {
+    //         name: "This Site",
+    //         icon: "fa-code"
+    //     },
+    //     {
+    //         name: "Resources",
+    //         icon: "fa-file-text"
+    //     }
+    // ]);
 });
 
-// app.post("/services", function(req, res, next) {
-//     req.checkBody("postparam", "Invalid postparam").notEmpty().isJSON();
-//     req.getValidationResult().then(function() {
-//         redisClient.rpush("services", );
-//     });
-
-    
-//     lock.acquire("servicesUpdate", function() {
-//         redisClient.getAsync("services").then(function(services) {
-//             if (!services) {
-//                 services = [];
-//             }
-//             services.push();
-//             redisClient.set("services", );
-//         });
-//     });
-// });
+app.post("/services", function(req, res, next) {
+    req.checkBody("postparam", "Invalid postparam").notEmpty().isJSON();
+    req.getValidationResult()
+        .then(function() {
+            return redisClient.hsetAsync("services", req.body.name, JSON.stringify(req.body));
+        })
+        .then(function() {
+            res.status(204).send({});
+        });
+});
 
 app.listen(8081, function() {
     console.log("Started registry server");
